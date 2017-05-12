@@ -5,10 +5,13 @@
 
   <!-- Nav tabs -->
   <ul class="nav nav-tabs" role="tablist">
-    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">CONSULTA usuario</a></li>
+    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">CONSULTAusuario</a></li>
     <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">REGISTRO</a></li>
    <li role="presentation"><a href="#profile1" aria-controls="profile1" role="tab" data-toggle="tab">COMBUSTIBLE</a></li>
- 
+    <li role="presentation" class="active"><a href="#home1" aria-controls="home1" role="tab" data-toggle="tab">list combustible</a></li>
+    <li role="presentation" class="active"><a href="#profile2" aria-controls="profile2" role="tab" data-toggle="tab">ENTRADA</a></li>
+    <li role="presentation" class="active"><a href="#profile3" aria-controls="profile3" role="tab" data-toggle="tab">SALIDA</a></li>
+  
   </ul>
 
   <!-- Tab panes -->
@@ -17,7 +20,7 @@
     <div role="tabpanel" class="tab-pane active" id="home">
       <table class="table table-striped">
         <thead>
-            <th>ID</th>yer resiemyer te
+            <th>ID</th>
           <th>Perfil</th>
           <th>Nombres</th>
           <th>Apellidos</th>
@@ -33,7 +36,7 @@
                 <td><?php echo $value->usu_apellidos; ?></td>
                 <td><?php echo $value->usu_correo; ?></td>
                 <td>
-              <a href="#"  class="btn btn-warning btn-xs" onclick="enviarajax('<?=$value->usu_id?>')">Editar...</a>    
+              <a href="#"  class="btn btn-warning btn-xs" onclick="enviarajax('<?=$value->usu_id?>')">Editar</a>    
                 </td>
              </tr>
           <?php } ?>
@@ -139,13 +142,185 @@
            </div>
     </div>
 <!--fial del tap combustible-->
- 
+   <!-- Tab panes  lista de CONSULTA-->
+    <div role="tabpanel" class="tab-pane active" id="home1">
+      <table class="table table-striped">
+        <thead>
 
+          <th>ID</th>
+          <th>nombre</th>
+          <th>fecha-registro</th>
+          <th>localizacion</th>
+          <th>cantidad</th>
+          <th>cantidad min</th>
+           <th>costo</th>
+        </thead>
+        <tbody>
+          <?php foreach ($listCombustible as $value) { ?>
+             <tr>
+                <td ><?php echo $value->id_combustible; ?></td>
+                <td><?php echo $value->nombre_combustible; ?></td><!--esta se cambia con el inner join de per_id_ a per_nombre-->
+                <td><?php echo $value->fecha_registro; ?></td>
+                <td><?php echo $value->localizacion; ?></td>
+                <td><?php echo $value->cantidad; ?></td>
+                <td><?php echo $value->cantidad_minima; ?></td>
+                <td><?php echo $value->costo_promedio; ?></td>
+                <td>
+      <a href="#"  class="btn btn-warning btn-xs" onclick="enviarajax('<?=$value->id_combustible ?>')">Editar</a>    
+                </td>
+             </tr>
+          <?php } ?>
+        </tbody>
+      </table>
+    </div>
+  <!--fial del tap combustible-->
+ 
+    <!-- Tab panes REGISTRO  DE ENTRADA COMBUSTIBLE-->
+    <div role="tabpanel" class="tab-pane" id="profile2">
+           <div class="row">
+             <div class="col-md-7">
+                    <!--aqi se va recuperar selPerfil()-->
+          <form method="POST" action="<?php echo base_url('usuario/insertentrada')?>"><!--el metodo post se esta agrafando  controlador -->
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">CODIGO</label>
+              <input type="text" name="txtCodentrada" class="form-control" id="exampleInputPassword1" placeholder="CODIGO">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">fecha registro</label>
+              <input type="date" name="txtFechaentrada" class="form-control" id="exampleInputPassword1" placeholder="Nombre">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">hora registro</label>
+              <input type="time" name="txtHoraRegis" class="form-control" id="exampleInputPassword1" placeholder="fecha">
+            </div>
+            
+            <div class="form-group">
+              <label for="exampleInputPassword1">cantidad</label>
+              <input type="text" name="txtCantentrada" class="form-control" id="exampleInputPassword1" placeholder="localizacion">
+            </div>
+            
+             <div class="form-group">
+              <label for="exampleInputPassword1">proveedor</label>
+              <input type="text" name="txtProveedor" class="form-control" id="exampleInputPassword1" placeholder="cantidad">
+            </div>
+
+             <div class="form-group">
+              <label for="exampleInputPassword1">programa</label>
+              <input type="text" name="txtPrograma" class="form-control" id="exampleInputPassword1" placeholder="camtidad">
+            </div>
+
+             <div class="form-group">
+              <label for="exampleInputPassword1">num vale</label>
+              <input type="text" name="txtNumvale" class="form-control" id="exampleInputPassword1" placeholder="costo">
+            </div>
+              <div class="form-group">
+              <label for="exampleInputPassword1">fecha vale</label>
+              <input type="date" name="txtFechavale" class="form-control" id="exampleInputPassword1" placeholder="costo">
+            </div>
+
+              <div class="form-group">
+              <label for="exampleInputPassword1">res programa</label>
+              <input type="text" name="txtResprogra" class="form-control" id="exampleInputPassword1" placeholder="costo">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrar</button>
+          </form>
+            
+             </div>
+             <div class="col-md-5">
+              
+             </div>
+
+           </div>
+    </div>
+    <!--fina de entrada-->
+    <!-- Tab panes REGISTRO  DE SALIDA COMBUSTIBLE-->
+    <div role="tabpanel" class="tab-pane" id="profile3">
+           <div class="row">
+             <div class="col-md-7">
+                    <!--aqi se va recuperar selPerfil()-->
+          <form method="POST" action="<?php echo base_url('usuario/insertSalidacombustible')?>"><!--el metodo post se esta agrafando  controlador -->
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">CODIGO</label>
+              <input type="text" name="txtCodsalida" class="form-control" id="exampleInputPassword1" placeholder="CODIGO">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">fecha registro</label>
+              <input type="date" name="txtFechaentrada" class="form-control" id="exampleInputPassword1" placeholder="Nombre">
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">fecha salida</label>
+              <input type="date" name="txtFechsalida" class="form-control" id="exampleInputPassword1" placeholder="fecha">
+            </div>
+            
+            <div class="form-group">
+              <label for="exampleInputPassword1">hora salida</label>
+              <input type="time" name="txtHorsalida" class="form-control" id="exampleInputPassword1" placeholder="localizacion">
+            </div>
+            
+             <div class="form-group">
+              <label for="exampleInputPassword1">catindad</label>
+              <input type="text" name="txtCantsalida" class="form-control" id="exampleInputPassword1" placeholder="cantidad">
+            </div>
+
+             <div class="form-group">
+              <label for="exampleInputPassword1">programa presu</label>
+              <input type="text" name="txtProgramaPresuSal" class="form-control" id="exampleInputPassword1" placeholder="camtidad">
+            </div>
+
+             <div class="form-group">
+              <label for="exampleInputPassword1">num vale</label>
+              <input type="text" name="txtNumvaleSal" class="form-control" id="exampleInputPassword1" placeholder="costo">
+            </div>
+              <div class="form-group">
+              <label for="exampleInputPassword1">fecha vale</label>
+              <input type="date" name="txtFechavaleSal" class="form-control" id="exampleInputPassword1" placeholder="costo">
+            </div>
+
+              <div class="form-group">
+              <label for="exampleInputPassword1">res programa</label>
+              <input type="text" name="txtResprograSal" class="form-control" id="exampleInputPassword1" placeholder="costo">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrar</button>
+          </form>
+            
+             </div>
+             <div class="col-md-5">
+              
+             </div>
+
+           </div>
+    </div>
+    <!--fina de SALIDA-->
 
 
 
   </div>
 </div>
+
+<div id="divEditar"></div>
+<script>
+function enviarajax(id_persona)
+    {
+    $.ajax({
+      method: "POST",
+      url: "usuario/EditarUsuario",
+      data:{usu_id:id_persona }
+      
+    })
+      .done(function(resultado) {
+        $('#divEditar').html(resultado);
+      });
+    }
+ </script>
+
 
 <div id="divEditar"></div>
 <script>

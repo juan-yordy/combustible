@@ -16,6 +16,8 @@ $this->load->model('Model_Usuario');
 		/*con esto estoy traendo todo los registro de la  tabla perfil donde se va recuperar en el index*/
 		$data['selPerfil'] = $this->Model_Usuario->selPerfil();
 		$data['listaUsuario']=$this->Model_Usuario->listUsuario();
+    $data['listCombustible']=$this->Model_Usuario->listCombustible();
+    
 		$this->load->view("plantilla",$data);
 	}
 
@@ -75,6 +77,34 @@ $this->load->model('Model_Usuario');
    }
   
    }
+
+    //PA INSETAR ENTRADA COMBUSTIBLE
+
+  public function insertSalidacombustible(){
+
+  $datos=$this->input->post();
+  if(isset($datos)){
+
+    $txtCodsalida=$datos['txtCodsalida'];
+    $txtFechaentrada=$datos['txtFechaentrada'];
+    $txtFechsalida=$datos['txtFechsalida'];
+    $txtHorsalida=$datos['txtHorsalida'];
+    $txtCantsalida=$datos['txtCantsalida'];
+    $txtProgramaPresuSal=$datos['txtProgramaPresuSal'];
+    $txtNumvaleSal=$datos['txtNumvaleSal'];
+    $txtFechavaleSal=$datos['txtFechavaleSal'];
+    $txtResprograSal=$datos['txtResprograSal'];
+
+      /*llamando ala funcion del model*/
+      $this->Model_Usuario->insertSalidacombus($txtCodsalida,$txtFechaentrada,$txtFechsalida,$txtHorsalida,$txtCantsalida,$txtProgramaPresuSal,$txtNumvaleSal,$txtFechavaleSal,$txtResprograSal);
+       redirect('');
+   }
+  
+   }
+
+
+
+
 
 
 
