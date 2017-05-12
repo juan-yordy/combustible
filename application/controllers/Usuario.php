@@ -35,6 +35,7 @@ $this->load->model('Model_Usuario');
    }
   
    }
+
     public function EditarUsuario()
    	{
    		$data['contenido'] = "usuario/VEditarUsuario";
@@ -50,6 +51,30 @@ $this->load->model('Model_Usuario');
    	{
    		
    	}
+
+
+
+    //PA INSETAR COMBUSTIBLE
+
+  public function insertacombus(){
+
+  $datos=$this->input->post();
+  if(isset($datos)){
+
+    $txtCodigo=$datos['txtCodigo'];
+    $txtNombre=$datos['txtNombre'];
+    $txtFecha=$datos['txtFecha'];
+    $txtLocalizacion=$datos['txtLocalizacion'];
+    $txtCantidad=$datos['txtCantidad'];
+    $txtCanmin=$datos['txtCanmin'];
+    $txtCosto=$datos['txtCosto'];
+
+      /*llamando ala funcion del model*/
+      $this->Model_Usuario->insertCombustible($txtCodigo,$txtNombre,$txtFecha,$txtLocalizacion,$txtCantidad,$txtCanmin,$txtCosto);
+       redirect('');
+   }
+  
+   }
 
 
 

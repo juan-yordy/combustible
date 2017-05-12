@@ -84,11 +84,7 @@
     </div>
 
     <?php }?>
-
-
-
-
-
+    
 <div id="divEditar"></div>
 <script>
 function enviarajax(id_persona)

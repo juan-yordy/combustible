@@ -60,10 +60,27 @@ public function listUsuario(){
         return $query->result();
         
     }
+
+
+
+
+  public function insertCombustible($codcombus,$nombre,$fecha,$localizacion,$cantidad,$catidadmin,$costo){
+    /*recuperando los valores y estan los nombres de la base de datos -ESTA ES EL SEGUNDO PASO 02*/
+    $arrayDatos= array(
+            'id_combustible'=> $codcombus,
+            'nombre_combustible'=>$nombre,
+            'fecha_registro'=>$fecha,
+            'localizacion'=>$localizacion,
+            'cantidad'=>$cantidad,
+            'cantidad_minima'=>$catidadmin,
+            'costo_promedio'=>$costo
+       );
+      /*con esyo ingresas datos a ltabla usuario */
+      $this->db->insert('tbcombustible', $arrayDatos);
+  }
     
 
 }
-
 
 
 
