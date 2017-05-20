@@ -53,7 +53,7 @@ $this->load->model('Model_Usuario');
    	{
 
       
-   echo $txtid=$this->input->post('textid');
+    $txtid=$this->input->post('textid');
     $textIdPer=$this->input->post('txtIdper');
     $txtNombres=$this->input->post('txtNombres');
     $txtApellidos=$this->input->post('txtApellidos');
@@ -65,9 +65,28 @@ $this->load->model('Model_Usuario');
     $result = $this->Model_Usuario->EditarUsuario($txtid,$textIdPer,$txtNombres,$txtApellidos,$txtCorreo,$txtTelefono);
      redirect('');
 
-    
+  }
+
+  public function IdUsuarioEliminar()
+  {
+    echo $id_usuario=$_POST['usu_id'];
+  
+    $data['contenido'] = "usuario/WelimarUsuario";
+    $data['busuario']=$this->Model_Usuario->BuscarUsuarioID($id_usuario);
+    $this->load->view('plantilla',$data);
 
   }
+  public function ElimnarUsuario()
+  {
+  $id_usuario=$_POST['usu_id'];
+  $this->Model_Usuario->EliminarUsuario($id_usuario);
+    redirect('');
+
+
+  
+
+  }
+   
    
    		
    	

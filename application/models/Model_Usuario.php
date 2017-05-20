@@ -74,6 +74,13 @@ public function listCombustible(){
             return $this->db->update('usuario', $data);
 
   }
+  public function EliminarUsuario($id)
+  {
+    $this->db->where('usu_id',$id);
+    return $this->db->delete('usuario');
+
+  } 
+
 
     function BuscarUsuarioID($id)
     {

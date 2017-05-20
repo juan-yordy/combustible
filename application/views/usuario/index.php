@@ -36,7 +36,8 @@
                 <td><?php echo $value->usu_apellidos; ?></td>
                 <td><?php echo $value->usu_correo; ?></td>
                 <td>
-              <a href="#"  class="btn btn-warning btn-xs" onclick="enviarajax('<?=$value->usu_id?>')">Editar</a>    
+              <a href="#"  class="btn btn-warning btn-xs" onclick="enviarajax('<?=$value->usu_id?>')">Editar</a>
+              <a href="#"  class="btn btn-danger btn-xs" onclick="enviarajaxelimnar('<?=$value->usu_id?>')">Eliminar</a>      
                 </td>
              </tr>
           <?php } ?>
@@ -166,7 +167,8 @@
                 <td><?php echo $value->cantidad_minima; ?></td>
                 <td><?php echo $value->costo_promedio; ?></td>
                 <td>
-      <a href="#"  class="btn btn-warning btn-xs" onclick="enviarajax('<?=$value->id_combustible ?>')">Editar</a>    
+      <a href="#"  class="btn btn-warning btn-xs" onclick="enviarajax('<?=$value->id_combustible ?>')">Editar</a>
+        
                 </td>
              </tr>
           <?php } ?>
@@ -324,11 +326,11 @@ function enviarajax(id_persona)
 
 <div id="divEditar"></div>
 <script>
-function enviarajax(id_persona)
+function enviarajaxelimnar(id_persona)
     {
     $.ajax({
       method: "POST",
-      url: "usuario/EditarUsuario",
+      url: "usuario/IdUsuarioEliminar",
       data:{usu_id:id_persona }
       
     })

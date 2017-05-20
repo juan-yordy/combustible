@@ -64,9 +64,7 @@
               <input type="text" name="txtTelefono" class="form-control" id="exampleInputPassword1" value="<?php echo $usuario->usu_telefono ?>">
             </div>
            <input type="hidden" name="textid" id="textid" value="<?php echo  $usuario->usu_id?>">
-            <button type="bu" class="btn btn-primary">Registrar Usuario</button>
-          
-            <input type="button" name="Modificar" value="Modificar">
+            <button type="bu" class="btn btn-primary">Editar Usuario</button>
           </form>
             
             </div>
