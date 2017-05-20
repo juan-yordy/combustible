@@ -51,9 +51,26 @@ $this->load->model('Model_Usuario');
    	}
    	public function actualizarUsuario()
    	{
-   		
-   	}
 
+      
+   echo $txtid=$this->input->post('textid');
+    $textIdPer=$this->input->post('txtIdper');
+    $txtNombres=$this->input->post('txtNombres');
+    $txtApellidos=$this->input->post('txtApellidos');
+    $txtCorreo=$this->input->post('txtCorreo');
+    $txtTelefono=$this->input->post('txtTelefono');
+
+      /*llamando ala funcion del model*/
+  
+    $result = $this->Model_Usuario->EditarUsuario($txtid,$textIdPer,$txtNombres,$txtApellidos,$txtCorreo,$txtTelefono);
+     redirect('');
+
+    
+
+  }
+   
+   		
+   	
 
 
     //PA INSETAR COMBUSTIBLE

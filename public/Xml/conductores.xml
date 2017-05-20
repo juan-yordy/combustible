@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+<channel>
+<title>Portada</title>
+<description>Portada</description>
+<language>es-ES</language>
+<copyright>(C) 2016 Peru Inspire.</copyright>
+<pubDate>07-06-2016</pubDate>
+<item>
+<numeros>MP000006A</numeros>
+<codigos>MP000006A</codigos>
+<fechaemisions>2016-06-07</fechaemisions>
+<fechaexpiracions>2017-06-07</fechaexpiracions>
+<nombres>juan juan carrasco carrrasco</nombres>
+</item>
+<item>
+<numeros>MP000007A</numeros>
+<codigos>MP000007A</codigos>
+<fechaemisions>2016-06-07</fechaemisions>
+<fechaexpiracions>2017-06-07</fechaexpiracions>
+<nombres>juan juan carrasco carrrasco</nombres>
+</item>
+</channel>
+</rss>

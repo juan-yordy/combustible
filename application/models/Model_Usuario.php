@@ -46,6 +46,19 @@ public function listCombustible(){
   return $query->result();
 }
 
+ public function actualizarTesis($id_tesis,$nombre, $apellido, $titulo,$fecha,$resumen){
+                $data = array(
+                        'nombre' =>$nombre,
+                        'apellido' =>$apellido,
+                        'titulo' => $titulo,
+                        'fecha' => $fecha,
+                        'resumen'=>$resumen,
+
+                        );
+
+            $this->db->where('id_tesis',$id_tesis);
+            return $this->db->update('dt_tesis', $data);           
+        }
 
   public function EditarUsuario($usu_id,$per_id,$usu_nombres,$usu_apellidos,$usu_correo,$usu_telefono)
   {

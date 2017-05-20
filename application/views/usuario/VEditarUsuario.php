@@ -18,14 +18,10 @@
 <?php  foreach($busuario as $usuario){ ?>
 
 
-    <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-
-        <div class="modal-dialog modal-lg" style="width: 450px;">
-
-            <div class="modal-content">
-
-                <div class="modal-header">
-
+   <div class="modal fade" id="mostrarmodal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
             
 
 
@@ -38,7 +34,7 @@
                 <div class="modal-body">  
                                                         
       <!--aqi se va recuperar selPerfil()-->
-          <form name="formusuarioeditar" id="idformusuarioeditar" class="form-horizontal text-center" method="post" action="<?php base_url('usuario/aactualizarUsuario');?>" role="form">
+          <form name="" class="form-horizontal text-center" method="Post" action="<?php echo base_url('Usuario/actualizarUsuario') ?>" role="form">
             <div class="form-group">
               <label for="exampleInputEmail1">Perfil</label>
               <select name="txtIdper" class="form-control">
@@ -67,8 +63,10 @@
               <label for="exampleInputPassword1">Telefono</label>
               <input type="text" name="txtTelefono" class="form-control" id="exampleInputPassword1" value="<?php echo $usuario->usu_telefono ?>">
             </div>
-            
-            <button type="submit" class="btn btn-primary">Registrar Usuario</button>
+           <input type="hidden" name="textid" id="textid" value="<?php echo  $usuario->usu_id?>">
+            <button type="bu" class="btn btn-primary">Registrar Usuario</button>
+          
+            <input type="button" name="Modificar" value="Modificar">
           </form>
             
             </div>

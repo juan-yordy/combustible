@@ -3,12 +3,12 @@
 <head>
 <!--esta es el master aqi esta las referencias de boosttrap-->
 	<title>CRUD-CI3-COMBUSTIBLE</title>
-	<link href="<?php  echo base_url('public/css/bootstrap.css')?>" rel="stylesheet">
-	<script src="<?php echo base_url('public/js/jquery.min.js')?>"></script>
-	<script src="<?php echo base_url('public/js/bootstrap.js')?>"></script>
-	<script src="<?php echo base_url('public/js/bootstrap.js')?>"></script>
-	<script src="<?php echo base_url('public/js/jquery.js')?>"></script>
-	<script src="<?php echo base_url('public/js/bootstrap.min.js')?>"></script>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+<script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+
 
 </head>
 
@@ -32,7 +32,6 @@
 <footer>
 	pie
 </footer>
-
 </body>
 
 </html>
